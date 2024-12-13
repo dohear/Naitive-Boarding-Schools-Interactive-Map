@@ -5,9 +5,9 @@ This project aims to make historical information about Native American boarding 
 
 ### Inspiration
 This project is inspired by:
-- **Research on Land-Grab Universities** and their historical impacts.
-- The need for **accessible and readable data** related to Indigenous history.
-- Datasets and records, including archives at **Marquette University**.
+- Research on Land-Grab Universities - https://github.com/HCN-Digital-Projects/landgrabu-data.
+- The need for related to Indigenous history.
+- Datasets and records, including archives at Marquette University.
 
 ## Data Sources
 1. **Federal Indian Boarding School Initiative Investigative Report**
