@@ -39,7 +39,6 @@ def pdf_to_json(pdf_path, json_path):
                         school_type = line.split("Type", 1)[1].strip()
                         school["School Type"] = school_type
                     elif line.startswith("General Notes"):
-                        # Handle multiline General Notes
                         general_notes = line.split("Notes", 1)[1].strip()
                         i += 1
                         while i < len(lines) and lines[i].strip() and not lines[i].startswith("Name:"):
