@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map of Native American Boarding Schools</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Interactive Map of Native American Boarding Schools, data provided by the United States Department of the Interior</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([39.8283, -98.5795], 4); // Centered in the USA
+
+        // Add a tile layer (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        fetch('/static/output_with_geocoding.json')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(school => {
+      // Create popup content with all the fields
+      const popupContent = `
+        <strong>Name:</strong> ${school["Name"] || "N/A"}<br>
+        <strong>Possible Other Name(s):</strong> ${school["Possible Other Name(s)"] || "N/A"}<br>
+        <strong>School Location:</strong> ${school["School Address"] || "N/A"}<br>
+        <strong>Start Date:</strong> ${school["Start Date"] || "N/A"}<br>
+        <strong>End Date:</strong> ${school["End Date"] || "N/A"}<br>
+        <strong>Housing:</strong> ${school["Housing"] || "N/A"}<br>
+        <strong>Education:</strong> ${school["Education"] || "N/A"}<br>
+        <strong>Federal Support:</strong> ${school["Federal Support"] || "N/A"}<br>
+        <strong>School Type:</strong> ${school["School Type"] || "N/A"}<br>
+        <strong>General Notes:</strong> ${school["General Notes"] || "N/A"}
+      `;
+
+      // Add a marker for each school with the popup
+      if (school.latitude && school.longitude) {
+        L.marker([school.latitude, school.longitude])
+          .addTo(map)
+          .bindPopup(popupContent);
+      } else {
+        console.warn('Missing coordinates for school:', school["Name"]);
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error loading or processing JSON data:', error);
+  });
+
+    </script>
+</body>
+</html>
