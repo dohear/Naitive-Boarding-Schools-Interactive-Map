@@ -14,7 +14,6 @@ This project is inspired by:
 
 
 ### Detailed School Information
-this map provides information on schools
 - Name(s)
 - Locations
 - Dates of operation
@@ -25,7 +24,7 @@ this map provides information on schools
        
 
 ### Data Download
-in the data directory you can find both the original PDF dataset used, as well as its .json version. I also included the python scripts used to scrape the info out of the PDFs. 
+In the data directory you can find both the original PDF dataset used, as well as its .json version. I also included the python scripts used to scrape the info out of the PDFs. 
 - **Target Format:** `.json` files as they are the standard file type if any sort of computing related tasks are to be done on the data. 
 
 
