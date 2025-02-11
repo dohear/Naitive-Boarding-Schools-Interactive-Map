@@ -25,14 +25,10 @@ This project is inspired by:
 
 ### Data Download
 In the data directory you can find both the original PDF dataset used, as well as its .json version. I also included the python scripts used to scrape the info out of the PDFs. 
-- **Target Format:** `.json` files as they are the standard file type if any sort of computing related tasks are to be done on the data. 
-
 
 ## Ethical Considerations for future developers
-The project incorporates ethical considerations, focusing on:
 - **FERPA Compliance:** Protecting student privacy and ensuring adherence to regulations.
 - **Respect for Tribal Privacy:** Consulting with Tribal Nations to ensure data use aligns with community values.
-
 
 ## Conclusion
 This project highlights the institutional histories of Native American boarding schools and the cultural interactions between Tribal Nations, the U.S. government, and religious orders. By creating a tool that synthesizes and visualizes this information, it serves as a resource for:
